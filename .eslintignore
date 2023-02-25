@@ -1,0 +1,10 @@
+dist/
+node_modules
+node_modules/
+patches/
+types/
+cache/
+.eslintrc.cjs
+vite.config.js
+.temp
+.eslintcache

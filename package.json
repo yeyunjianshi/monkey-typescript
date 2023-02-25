@@ -1,0 +1,46 @@
+{
+  "name": "monkey-typescript",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "rollup -c",
+    "test": "vitest",
+    "coverage": "vitest run --coverage",
+    "lint": "eslint --cache --ext .ts ./{src,__tests__}/**.ts",
+    "lint:fix": "eslint --cache --fix --ext .ts ./{src,__tests__}/**.ts",
+    "format": "prettier --write --cache --parser typescript \"**/*.[tj]s?(x)\"",
+    "clean": "rimraf dist packages/*/dist"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@rollup/plugin-json": "^6.0.0",
+    "@rollup/plugin-terser": "^0.4.0",
+    "@rollup/plugin-typescript": "^11.0.0",
+    "@typescript-eslint/eslint-plugin": "^5.53.0",
+    "@typescript-eslint/parser": "^5.53.0",
+    "eslint": "^8.34.0",
+    "eslint-config-prettier": "^8.6.0",
+    "esno": "^0.16.3",
+    "lint-staged": "^13.1.2",
+    "prettier": "^2.8.4",
+    "rimraf": "^3",
+    "rollup": "^3.17.2",
+    "rollup-plugin-dts": "^5.2.0",
+    "simple-git-hooks": "^2.8.1",
+    "tslib": "^2.5.0",
+    "typescript": "^4.9.5",
+    "vitest": "^0.28.5"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "npx lint-staged"
+  },
+  "lint-staged": {
+    "*.{js,ts,md}": [
+      "eslint --cache --fix",
+      "prettier --write"
+    ]
+  }
+}
