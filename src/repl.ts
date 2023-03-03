@@ -1,7 +1,7 @@
 import * as readLine from 'node:readline/promises'
 import { stdin as input, stdout as output } from 'node:process'
-import { newLexer } from './lexer'
 import { TokenType } from './token'
+import { Lexer } from './lexer'
 
 const PROMPT = '>> '
 
@@ -11,7 +11,7 @@ async function execute() {
     const rl = readLine.createInterface({ input, output })
     const answer = await rl.question(PROMPT)
 
-    const lexer = newLexer(answer)
+    const lexer = new Lexer(answer)
 
     let token = lexer.nextToken()
     while (token.type !== TokenType.EOF) {

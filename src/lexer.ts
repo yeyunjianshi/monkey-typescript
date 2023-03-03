@@ -11,6 +11,7 @@ export class Lexer {
 
   constructor(input: string) {
     this.input = input
+    this.readChar()
   }
 
   nextToken() {
@@ -141,12 +142,6 @@ export function isLetter(ch: Char) {
 
 export function isDigit(ch: Char) {
   return '0' <= ch && ch <= '9'
-}
-
-export function newLexer(input: string) {
-  const lexer = new Lexer(input)
-  lexer.readChar()
-  return lexer
 }
 
 export function newToken(tokenType: TokenType, ch: Char) {

@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { newLexer } from '../src/lexer'
+import { Lexer } from '../src/lexer'
 import { TokenType } from '../src/token'
 
 describe('Lexer', () => {
@@ -102,7 +102,7 @@ if (5 < 10) {
       { type: TokenType.EOF, literal: '' },
     ]
 
-    const lexer = newLexer(input)
+    const lexer = new Lexer(input)
     expectedTokens.forEach((expectedToken) => {
       expect(expectedToken).toMatchObject(lexer.nextToken())
     })
